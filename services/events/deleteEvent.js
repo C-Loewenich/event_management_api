@@ -7,7 +7,7 @@ const deleteEvent = (id) => {
         throw new ResourceNotFoundError('Events', id)
     }
     eventData.events.splice(index, 1);
-    return id; //for the case that this should be used later
+    return id;
 }
 
 export default deleteEvent

@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req,res) => {
     const {id} = req.params
     const category = getCategoryById(id)
+    //const name = category.name
     res.status(200).json(category)
 }, notFoundErrorHandler);
 
@@ -30,8 +31,8 @@ router.post('/', authMiddleware, (req, res) => {
 router.put('/:id', authMiddleware, (req,res) => {
     const {id} = req.params;
     const {name} = req.body
-    const updatedCategory = updateCategoryById(name, id)
-    res.status(200).json(updatedCategory)
+    const updatedCategory = updateCategoryById(id, name)
+    res.status(200).json({message: `Category id ${id} was updated`, updatedCategory})
 }, notFoundErrorHandler);
 
 router.delete('/:id', authMiddleware, (req,res) => {

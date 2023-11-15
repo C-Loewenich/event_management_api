@@ -31,7 +31,7 @@ router.put('/:id', authMiddleware, (req,res) => {
     const {id} = req.params;
     const {username, pasword, name, image} = req.body
     const updatedUser = updateUserById(id, username, pasword, name, image)
-    res.status(200).json(updatedUser)
+    res.status(200).json({message: `User id ${id} was updated`, updatedUser})
 });
 
 router.delete('/:id', authMiddleware, (req,res) => {

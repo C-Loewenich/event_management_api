@@ -7,7 +7,7 @@ const deleteUser = (id) => {
         throw new ResourceNotFoundError('User', id)
     }
     userData.users.splice(index, 1);
-    return id; //for the case that this should be used later
+    return id;
 }
 
 export default deleteUser
